@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* { font-family: 'Space Grotesk', sans-serif; }
+
+body {
+  background-color: #08000f;
+  color: #f1f5f9;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0f0020; }
+::-webkit-scrollbar-thumb { background: rgba(217, 70, 239, 0.4); border-radius: 2px; }
+
+/* ─── GLASS ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* ─── GRADIENTS ─── */
+.gradient-text {
+  background: linear-gradient(135deg, #fb923c 0%, #ec4899 48%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-warm {
+  background: linear-gradient(135deg, #fbbf24 0%, #fb923c 50%, #f43f5e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.gradient-text-cool {
+  background: linear-gradient(135deg, #2dd4bf 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── BACKGROUNDS ─── */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 70% 55% at 5% 35%, rgba(249, 115, 22, 0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 65% at 95% 15%, rgba(168, 85, 247, 0.13) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 45% at 55% 90%, rgba(236, 72, 153, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 35% 35% at 35% 55%, rgba(217, 70, 239, 0.06) 0%, transparent 50%),
+    #08000f;
+}
+
+/* ─── GLOW ─── */
+.glow-primary {
+  box-shadow: 0 0 24px rgba(217, 70, 239, 0.45), 0 0 52px rgba(236, 72, 153, 0.15);
+}
+.glow-warm {
+  box-shadow: 0 0 24px rgba(249, 115, 22, 0.45), 0 0 48px rgba(249, 115, 22, 0.12);
+}
+.glow-webcam-active {
+  box-shadow:
+    0 0 0 2px rgba(217, 70, 239, 0.7),
+    0 0 40px rgba(236, 72, 153, 0.3),
+    0 0 80px rgba(168, 85, 247, 0.12);
+}
+
+/* ─── DOT GRID ─── */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.82); }
+}
+.pulse-dot { animation: pulse-dot 1.8s ease-in-out infinite; }
+
+@keyframes scan-line {
+  0% { top: 0%; }
+  100% { top: 100%; }
+}
+.scan-line { animation: scan-line 2.5s linear infinite; }
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.float-up { animation: float-up 0.3s ease-out forwards; }
+
+@keyframes shimmer-bg {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  background-size: 200% 100%;
+  animation: shimmer-bg 2s infinite;
+}
+
+/* ─── UTILITIES ─── */
+.section-label {
+  @apply text-xs font-semibold tracking-widest text-fuchsia-400 uppercase;
+}
+.btn-primary {
+  @apply flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white transition-all duration-200 cursor-pointer whitespace-nowrap;
+  background: linear-gradient(135deg, #d946ef, #ec4899);
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #e879f9, #f43f5e);
+  box-shadow: 0 0 20px rgba(217, 70, 239, 0.4);
+}
+.btn-ghost {
+  @apply px-6 py-3 rounded-xl text-sm font-semibold glass border border-white/10 text-white hover:border-fuchsia-400/30 hover:text-fuchsia-300 transition-all duration-200 cursor-pointer whitespace-nowrap;
+}
+
+/* ─── CHART TOOLTIP ─── */
+.recharts-tooltip-wrapper .custom-tooltip {
+  background: rgba(20, 0, 35, 0.92);
+  border: 1px solid rgba(217, 70, 239, 0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+}

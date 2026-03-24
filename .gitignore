@@ -1,0 +1,18 @@
+.venv/
+frontend/node_modules/
+__pycache__/
+*.pyc
+*.pyo
+
+# Large ML/data artifacts
+datasets/
+data_sentence_clean/
+backend/checkpoints/
+*.pt
+*.pth
+*.safetensors
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
